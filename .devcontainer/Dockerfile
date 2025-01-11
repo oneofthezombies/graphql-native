@@ -17,20 +17,15 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/*
 
 USER vscode
-WORKDIR "/work"
 ENV HOME="/home/vscode"
+
+WORKDIR "/work"
+RUN git config --global --add safe.directory /work
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="${HOME}/.cargo/bin:${PATH}"
 RUN rustup install 1.83.0 && \
-    rustup default 1.83.0 && \
-    rustup target add wasm32-unknown-unknown && \
-    rustup target add wasm32-unknown-emscripten && \
-    rustup target add wasm32-wasip1 && \
-    rustup target add wasm32-wasip1-threads && \
-    rustup target add wasm32-wasip2 && \
-    cargo install wasm-tools@1.222.0 && \
-    cargo install pest-language-server@0.3.11
+    rustup default 1.83.0
 
 RUN curl https://get.volta.sh | bash
 ENV PATH="${HOME}/.volta/bin:${PATH}"
@@ -39,10 +34,15 @@ RUN volta install \
     npm@11.0.0 \
     sort-package-json@2.12.0 \
     tsx@4.19.2 \
-    typescript@5.6.2
+    typescript@5.6.2 \
+    create-neon@0.6.0
+
+RUN curl -fsSL https://deno.land/install.sh | sh -s v2.1.5
+ENV PATH="${HOME}/.deno/bin:${PATH}"
 
 ENV FISH_CONFIG_DIR="${HOME}/.config/fish"
 ENV FISH_CONFIG_FILE="${FISH_CONFIG_DIR}/config.fish"
 RUN mkdir -p "${FISH_CONFIG_DIR}" && \
     echo "functions --erase fish_greeting" >> "${FISH_CONFIG_FILE}" && \
     echo "alias ll='ls -alF'" >> "${FISH_CONFIG_FILE}"
+
