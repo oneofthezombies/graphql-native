@@ -1,0 +1,66 @@
+{
+    "customizations": {
+      "vscode": {
+        "extensions": [
+            "donjayamanne.githistory",
+            "esbenp.prettier-vscode",
+            "rust-lang.rust-analyzer",
+            "streetsidesoftware.code-spell-checker",
+            "tamasfe.even-better-toml",
+            "Thinker.sort-json",
+            "usernamehw.errorlens",
+            "vadimcn.vscode-lldb",
+            "GitHub.copilot-chat"
+        ],
+        "settings": {
+            "github.copilot.enable": {
+                "*":false
+            }
+            ,
+          "[json]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+          },
+          "[jsonc]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+          },
+          "[markdown]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+          },
+          "[rust]": {
+            "editor.defaultFormatter": "rust-lang.rust-analyzer",
+            "editor.formatOnSave": true
+          },
+          "[toml]": {
+            "editor.defaultFormatter": "tamasfe.even-better-toml",
+            "editor.formatOnSave": true
+          },
+          "[typescript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+          },
+          "[yaml]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true
+          },
+          "editor.rulers": [80],
+          "files.eol": "\n",
+          "typescript.inlayHints.enumMemberValues.enabled": true,
+          "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+          "typescript.inlayHints.parameterNames.enabled": "all",
+          "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+          "typescript.inlayHints.parameterTypes.enabled": true,
+          "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+          "typescript.inlayHints.variableTypes.enabled": true,
+          "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true
+        }
+      }
+    },
+    "dockerComposeFile": "./compose.yaml",
+    "overrideCommand": true,
+    "service": "work",
+    "workspaceFolder": "/work",
+    "postAttachCommand": "npm i -ws --include-workspace-root"
+  }
