@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = ["packages/graphql-native/crates/@oneofthezombies/graphql-native"]
+
+[workspace.package]
+edition = "2021"
+license = "MIT"
+authors = ["oneofthezombies <hunhoekim@gmail.com>"]
+repository = "https://github.com/oneofthezombies/graphql-native"
